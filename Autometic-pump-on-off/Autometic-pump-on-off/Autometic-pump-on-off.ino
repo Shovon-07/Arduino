@@ -36,10 +36,7 @@ void loop() {
 
   // Calculation
   duration = pulseIn(echo, HIGH);
-//  distance = ((0.000332 * duration) / 2) * 39.37; // Divided by 2 for get outgoing time.
-                                                 // Multimply by 100 for convert m to cm.
-  distance = (0.000166 * duration) * 39.37;
-
+  distance = (0.000166 * duration) * 39.37;  // Multimply by 39.37 for convert m to inch.
   lcd.setCursor(0,1);
   lcd.print(distance);
 
