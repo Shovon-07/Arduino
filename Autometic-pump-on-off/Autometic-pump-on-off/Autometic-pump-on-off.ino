@@ -18,10 +18,10 @@ void setup() {
   pinMode(trigger, OUTPUT);
   pinMode(echo, INPUT);
 
-  lcd.setCursor(2,0);
-  lcd.print("Level");
+  lcd.setCursor(1,0);
+  lcd.print("LEVEL");
   lcd.setCursor(10,0);
-  lcd.print("Status");
+  lcd.print("STATUS");
 }
 
 void loop() {
@@ -41,7 +41,7 @@ void loop() {
   lcd.setCursor(0,1);
   lcd.print(distance);
 
-  lcd.setCursor(7,1);
+  lcd.setCursor(6,1);
   lcd.print("%");
     
   if (distance > 10) {
