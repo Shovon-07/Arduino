@@ -14,3 +14,5 @@ void loop() {
   digitalWrite(m2, LOW);
 
 }
+
+// https://www.tinkercad.com/things/3VyjpR9BAji-pir-motion-sensor
