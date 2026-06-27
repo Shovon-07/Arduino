@@ -6,7 +6,7 @@
 #include <BlynkSimpleEsp8266.h>
 
 const char ssid[] = "No Internet";
-const char pass[] = "onsiTE422";
+const char pass[] = "**********";
 
 const int ledPin = 4;    // D2
 const int relayPin = 0;  // D3
