@@ -9,8 +9,9 @@ char api[] = "https://iot-backend-x17e.onrender.com/api/iot-data/";
 
 const int ledPin = 4;    // D2 (Fan)
 const int relayPin = 0;  // D3 (Light)
+const int builtInLed = LED_BUILTIN;
 
-WiFiClientSecure client; 
+WiFiClientSecure client;
 HTTPClient http;
 
 // Json parsing
@@ -53,6 +54,17 @@ void setup() {
 
   pinMode(relayPin, OUTPUT);
   pinMode(ledPin, OUTPUT);
+  pinMode(builtInLed, OUTPUT);
+
+  // Power connection signal
+  int i = 0;
+  while (i <= 2) {
+    digitalWrite(builtInLed, LOW);
+    delay(3000);
+    digitalWrite(builtInLed, HIGH);
+    delay(3000);
+    i++;
+  }
 
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, pass);
@@ -67,7 +79,7 @@ void setup() {
   Serial.println(ssid);
 
   // Ingnore HTTPS certificate verification
-  client.setInsecure(); 
+  client.setInsecure();
 }
 
 void loop() {
@@ -75,7 +87,7 @@ void loop() {
 
     // HTTP connection start
     if (http.begin(client, api)) {
-      
+
       // Send HTTP GET request
       int httpResponseCode = http.GET();
 
